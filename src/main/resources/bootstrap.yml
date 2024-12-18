@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: security-manager
+  profiles:
+    active: test
+  cloud:
+    config:
+      uri: http://localhost:8081
+
+
