@@ -5,7 +5,7 @@ import com.pen.securitymanager.model.DtoCompanyPasswordRules;
 import com.pen.securitymanager.model.DtoCompanyPasswordRulesIU;
 import com.pen.securitymanager.repository.CompanyPasswordRulesRepository;
 import com.pen.securitymanager.service.ICompanyPasswordRulesService;
-import com.towpen.base.BaseDbServiceImp;
+import com.towpen.base.security.BaseDbServiceImp;
 import com.towpen.base.enums.model.LanguageType;
 import com.towpen.base.enums.model.TMessageType;
 import com.towpen.base.exceptions.TOpenException;

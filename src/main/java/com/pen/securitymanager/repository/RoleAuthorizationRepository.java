@@ -1,7 +1,7 @@
 package com.pen.securitymanager.repository;
 
 import com.pen.securitymanager.db.model.RoleAuthorization;
-import com.towpen.base.db.repository.BaseDaoRepository1;
+import com.towpen.base.db.repository.BaseDaoRepository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface RoleAuthorizationRepository extends BaseDaoRepository1<RoleAuthorization> {
+public interface RoleAuthorizationRepository extends BaseDaoRepository<RoleAuthorization> {
 	@EntityGraph(value = "roleAuthorizationDetails", type = EntityGraph.EntityGraphType.FETCH)
 	@Query("select ra from RoleAuthorization ra where ra.roleDef.Id = :roleDefId")
 	Optional<List<RoleAuthorization>> findRoleAuthorizationDetailsByRoleDefId(String roleDefId);

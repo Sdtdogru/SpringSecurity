@@ -15,6 +15,7 @@ import com.towpen.base.exceptions.TOpenException;
 import com.towpen.base.exceptions.models.TMessageFactory;
 import com.towpen.base.restservice.model.DtoBaseModel;
 import com.towpen.base.restservice.model.TOpenMessage;
+import com.towpen.base.security.BaseDbServiceImp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ import java.util.Optional;
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 @Slf4j
-public class UserDefCompanyAuthServiceImpl extends com.towpen.base.BaseDbServiceImp<UserDefCompanyAuthRepository, UserDefCompanyAuth> implements IUserDefCompanyAuthService {
+public class UserDefCompanyAuthServiceImpl extends BaseDbServiceImp<UserDefCompanyAuthRepository, UserDefCompanyAuth> implements IUserDefCompanyAuthService {
 	@Autowired
 	private ICompanyService companyService;
 

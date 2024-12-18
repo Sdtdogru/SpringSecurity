@@ -1,7 +1,7 @@
 package com.pen.securitymanager.service;
 
 import com.pen.securitymanager.db.model.AuthorizationDef;
-import com.towpen.base.db.repository.BaseDaoRepository1;
+import com.towpen.base.db.repository.BaseDaoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface AuthorizationDefRepository extends BaseDaoRepository1<AuthorizationDef> {
+public interface AuthorizationDefRepository extends BaseDaoRepository<AuthorizationDef> {
 	@EntityGraph(value = "authorization-menu", type = EntityGraph.EntityGraphType.FETCH)
 	@Query("select ad from AuthorizationDef ad where 1=1 "
 			+ "and (:name is null or LOWER(UPPER(ad.name)) like concat('%', LOWER(UPPER(:name)), '%') )"

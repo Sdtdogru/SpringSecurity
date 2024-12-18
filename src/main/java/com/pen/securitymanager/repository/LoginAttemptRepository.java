@@ -1,14 +1,14 @@
 package com.pen.securitymanager.repository;
 
 import com.pen.securitymanager.db.model.LoginAttempt;
-import com.towpen.base.db.repository.BaseDaoRepository1;
+import com.towpen.base.db.repository.BaseDaoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.Date;
 
-public interface LoginAttemptRepository extends BaseDaoRepository<LoginAttempt>, BaseDaoRepository1<LoginAttempt> {
+public interface LoginAttemptRepository extends com.pen.securitymanager.repository.BaseDaoRepository<LoginAttempt>, BaseDaoRepository<LoginAttempt> {
 	@Query("select la from LoginAttempt la  where 1=1 and (:userName is null or la.userName LIKE concat('%', :userName, '%'))"
 			+ " and (:ipAddress is null or la.ipAddress like concat('%',:ipAddress, '%') )"
 			+ " and (:isLoginSuccess is null or la.isLoginSuccess=:isLoginSuccess) "

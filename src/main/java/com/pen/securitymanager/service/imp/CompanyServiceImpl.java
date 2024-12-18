@@ -8,6 +8,7 @@ import com.towpen.base.enums.model.TMessageType;
 import com.towpen.base.exceptions.TOpenException;
 import com.towpen.base.exceptions.models.TMessageFactory;
 import com.towpen.base.restservice.model.TOpenMessage;
+import com.towpen.base.security.BaseDbServiceImp;
 import com.towpen.base.security.ISessionInstanceService;
 import com.towpen.utils.RestUtil;
 import com.towpen.utils.TStringUtil;
@@ -24,7 +25,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class CompanyServiceImpl extends com.towpen.base.BaseDbServiceImp<CompanyRepository, Company> implements ICompanyService {
+public class CompanyServiceImpl extends BaseDbServiceImp<CompanyRepository, Company> implements ICompanyService {
 	@Autowired
 	ISessionInstanceService sessionInstanceService;
 

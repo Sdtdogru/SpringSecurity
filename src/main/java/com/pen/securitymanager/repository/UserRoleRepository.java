@@ -1,14 +1,14 @@
 package com.pen.securitymanager.repository;
 
 import com.towpen.base.db.model.security.UserRole;
-import com.towpen.base.db.repository.BaseDaoRepository1;
+import com.towpen.base.db.repository.BaseDaoRepository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRoleRepository extends BaseDaoRepository1<UserRole> {
+public interface UserRoleRepository extends BaseDaoRepository<UserRole> {
 	@EntityGraph(value = "userRoleDetails", type = EntityGraph.EntityGraphType.FETCH)
 	@Query("select ur from UserRole ur where ur.roleDef.Id = :roleDefId")
 	Optional<List<UserRole>> findUserRoleDetailsByRoleDefId(String roleDefId);

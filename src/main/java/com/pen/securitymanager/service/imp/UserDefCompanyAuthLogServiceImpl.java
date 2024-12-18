@@ -3,7 +3,7 @@ package com.pen.securitymanager.service.imp;
 import com.pen.securitymanager.db.model.UserDefCompanyAuthLog;
 import com.pen.securitymanager.repository.UserDefCompanyAuthLogRepository;
 import com.pen.securitymanager.service.IUserDefCompanyAuthLogService;
-import com.towpen.base.BaseDbServiceImp;
+import com.towpen.base.security.BaseDbServiceImp;
 import com.towpen.base.db.model.security.Company;
 import com.towpen.base.db.model.security.UserDef;
 

@@ -4,7 +4,7 @@ import com.pen.securitymanager.db.model.LoginAttempt;
 import com.pen.securitymanager.model.DtoLoginAttempt;
 import com.pen.securitymanager.repository.LoginAttemptRepository;
 import com.pen.securitymanager.service.ILoginAttemptService;
-import com.towpen.base.BaseDbServiceImp;
+import com.towpen.base.security.BaseDbServiceImp;
 import com.towpen.base.enums.model.TMessageType;
 import com.towpen.base.exceptions.TOpenException;
 import com.towpen.base.exceptions.models.TMessageFactory;

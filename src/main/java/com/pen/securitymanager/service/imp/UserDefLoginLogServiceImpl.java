@@ -3,7 +3,7 @@ package com.pen.securitymanager.service.imp;
 import com.pen.securitymanager.db.model.UserDefLoginLog;
 import com.pen.securitymanager.repository.UserDefLoginLogRepository;
 import com.pen.securitymanager.service.IUserDefLoginLogService;
-import com.towpen.base.BaseDbServiceImp;
+import com.towpen.base.security.BaseDbServiceImp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

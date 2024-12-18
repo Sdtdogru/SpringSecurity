@@ -2,9 +2,9 @@ spring:
   application:
     name: security-manager
   profiles:
-    active: test
+    active: dev
   cloud:
     config:
-      uri: http://localhost:8081
+      uri: http://localhost:8081/config-server
 
 

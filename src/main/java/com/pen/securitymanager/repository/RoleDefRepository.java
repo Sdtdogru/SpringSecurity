@@ -1,14 +1,14 @@
 package com.pen.securitymanager.repository;
 
 import com.towpen.base.db.model.security.RoleDef;
-import com.towpen.base.db.repository.BaseDaoRepository1;
+import com.towpen.base.db.repository.BaseDaoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface RoleDefRepository extends BaseDaoRepository1<RoleDef> {
+public interface RoleDefRepository extends BaseDaoRepository<RoleDef> {
 	@Query("select rd from RoleDef rd where 1=1 "
 			+ "and (:name is null or LOWER(UPPER(rd.name)) like concat('%' , LOWER(UPPER(:name)) , '%')) "
 			+ "and (:description is null or LOWER(UPPER(rd.description)) like concat('%' , LOWER(UPPER(:description)) , '%')) "

@@ -7,14 +7,13 @@ import com.pen.securitymanager.model.DtoUserDef;
 import com.pen.securitymanager.model.DtoUserDefCompanyAuth;
 import com.pen.securitymanager.repository.*;
 import com.pen.securitymanager.service.*;
-import com.towpen.base.BaseDbServiceImp;
+import com.towpen.base.security.BaseDbServiceImp;
 import com.towpen.base.db.model.security.Company;
 import com.towpen.base.db.model.security.UserDef;
 import com.towpen.base.db.model.security.UserDefAccess;
 import com.towpen.base.enums.model.AccessType;
 import com.towpen.base.enums.model.LanguageType;
 import com.towpen.base.enums.model.TMessageType;
-import com.towpen.base.enums.model.UserDefGenericIdType;
 import com.towpen.base.exceptions.TOpenException;
 import com.towpen.base.exceptions.rest.ApiErrorBeanController;
 import com.towpen.base.restservice.model.TOpenMessage;
@@ -161,38 +160,38 @@ public class UserDefServiceImp extends BaseDbServiceImp <UserDefRepository, User
 		}
 		String sessionId = sessionManager.createSessionId();
 		userSession.setSessionId(sessionId);
-		if(userDef.getUserType().isAddIpAddressToToken()) {
-			userSession.setIpAddress(WebUtils.getRemoteAddress(httpServletRequest));
-		}
+//		if(userDef.getUserType().isAddIpAddressToToken()) {
+//			userSession.setIpAddress(WebUtils.getRemoteAddress(httpServletRequest));
+//		}
 		userSession.setSupportedCompanies(new ArrayList<>(companies.values()));
 		return new TOpenSessionInstance(userSession, roles);
 	}
-	private HashMap<String, Object> additionalSessionInfos(UserDef userDef) {
-		if (userDef.getUserDefGenericIdType() != null) {
-			if (userDef.getUserDefGenericIdType() == UserDefGenericIdType.AGENCY_SALES_MEMBER_ID) {
-				return loadForAgencySalesMember(userDef.getGenericIdentifier());
-			}
+//	private HashMap<String, Object> additionalSessionInfos(UserDef userDef) {
+//		if (userDef.getUserDefGenericIdType() != null) {
+//			if (userDef.getUserDefGenericIdType() == UserDefGenericIdType.AGENCY_SALES_MEMBER_ID) {
+//				return loadForAgencySalesMember(userDef.getGenericIdentifier());
+//			}
+//
+//		}
+//		return null;
+//	}
 
-		}
-		return null;
-	}
-
-	private HashMap<String, Object> loadForAgencySalesMember(String id) {
-		HashMap<String, Object> loginStatics = new HashMap<>();
-		Optional<AgencySalesMember> agencySalesMemberOpt = agencySalesMemberService.findAgencySalesMemberById(id);
-		if (agencySalesMemberOpt.isEmpty()) {
-			return loginStatics;
-		}
-	/*	Optional<AgencySalesMember> agencyTechnicalSalesMember = agencySalesMemberService.findAgencyTechnicalSalesMemberById(id);
-		if(agencyTechnicalSalesMember.isEmpty()) {
-			return loginStatics;
-		}*/
-		AgencySalesMember agencySalesMember = agencySalesMemberOpt.get();
-		loginStatics.put(JCoreLoginStatics.AGENCY_ID, agencySalesMember.getAgency().getId());
-		loginStatics.put(JCoreLoginStatics.SALES_MEMBER_ID, agencySalesMember.getId());
-		//loginStatics.put(JCoreLoginStatics.AGENCY_TECHNICAL_SALES_MEMBER_ID, agencyTechnicalSalesMember.get().getId());
-		return loginStatics;
-	}
+//	private HashMap<String, Object> loadForAgencySalesMember(String id) {
+//		HashMap<String, Object> loginStatics = new HashMap<>();
+//		Optional<AgencySalesMember> agencySalesMemberOpt = agencySalesMemberService.findAgencySalesMemberById(id);
+//		if (agencySalesMemberOpt.isEmpty()) {
+//			return loginStatics;
+//		}
+//	/*	Optional<AgencySalesMember> agencyTechnicalSalesMember = agencySalesMemberService.findAgencyTechnicalSalesMemberById(id);
+//		if(agencyTechnicalSalesMember.isEmpty()) {
+//			return loginStatics;
+//		}*/
+//		AgencySalesMember agencySalesMember = agencySalesMemberOpt.get();
+//		loginStatics.put(JCoreLoginStatics.AGENCY_ID, agencySalesMember.getAgency().getId());
+//		loginStatics.put(JCoreLoginStatics.SALES_MEMBER_ID, agencySalesMember.getId());
+//		//loginStatics.put(JCoreLoginStatics.AGENCY_TECHNICAL_SALES_MEMBER_ID, agencyTechnicalSalesMember.get().getId());
+//		return loginStatics;
+//	}
 	@Override
 	public TOpenUserRoleAuth findAuthorizationsByUserId(String userId) {
 		TOpenUserRoleAuth userAuthObj = new TOpenUserRoleAuth();
@@ -207,7 +206,7 @@ public class UserDefServiceImp extends BaseDbServiceImp <UserDefRepository, User
 				userAuthObj.getAuthorizations().add(auth);
 			}
 		}
-		userAuthObj.setRestrictions(createUserRestrictions(userId));
+		//userAuthObj.setRestrictions(createUserRestrictions(userId));
 		return userAuthObj;
 	}
 
