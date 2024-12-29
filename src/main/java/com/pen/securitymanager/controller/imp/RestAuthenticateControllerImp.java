@@ -7,6 +7,7 @@ import com.pen.securitymanager.service.IAuthenticationService;
 import com.towpen.base.restservice.model.RestRootEntity;
 import com.towpen.base.security.JWT;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,6 +18,7 @@ public class RestAuthenticateControllerImp implements RestAuthenticateController
 	private IAuthenticationService authService;
 
 	@Override
+	@PostMapping("/login")
 	public RestRootEntity<JWT> login(AuthenticationRequest auth) {
 		return RestRootEntity.ok(authService.authenticate(auth));
 	}

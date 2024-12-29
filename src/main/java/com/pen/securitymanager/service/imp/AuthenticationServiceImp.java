@@ -29,7 +29,7 @@ public class AuthenticationServiceImp implements IAuthenticationService {
 	@Override
 	public JWT authenticate(AuthenticationRequest loginRequestDto) {
 		TOpenSessionInstance instance = userDefService.login(loginRequestDto.getUsername(),loginRequestDto.getPassword());
-		return null;
+		return tokenService.createToken(instance,EXPIRE_IN_MINUTES,EXPIRE_REFRESH_TOKEN_IN_MINUTES);
 	}
 
 	@Override
